@@ -91,6 +91,19 @@ public class JsonObject {
         return (Map<String, JsonObject>)this.value;
     }
 
+    public JsonObject get(String key) throws ClassCastException {
+        if (!this.isMap())
+            throw new TypeNotPresentException("JsonObjet is not a Map", null);
+        return this.getMap().get(key);
+    }
+
+
+    public JsonObject get(int index) throws ClassCastException {
+        if (this.isList())
+            return this.getList().get(index);
+        throw new TypeNotPresentException("JsonObjet is not a List", null);
+    }
+
 
     @Override
     public String toString() {
@@ -99,9 +112,7 @@ public class JsonObject {
             sb.append(this.getInteger());
         }
         else if (this.isString()){
-            sb.append("\"");
             sb.append(this.getString());
-            sb.append("\"");
         }
         else if (this.isList()) {
             sb.append("List");
