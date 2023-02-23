@@ -3,7 +3,9 @@ package Json;
 import java.util.Collection;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 
 public class JsonObject {
@@ -112,15 +114,31 @@ public class JsonObject {
             sb.append(this.getInteger());
         }
         else if (this.isString()){
-            sb.append(this.getString());
+            sb.append("\"" + this.getString() + "\"");
         }
         else if (this.isList()) {
-            sb.append("List");
-            sb.append(this.getList().toString());
+            sb.append("[");
+
+            boolean isFirst = true;
+            for (JsonObject object : this.getList()) {
+                if (!isFirst)
+                    sb.append(",");
+                sb.append(object.toString());
+                isFirst = false;
+            }
+            sb.append("]");
         }
         else if (this.isMap()) {
-            sb.append("Map");
-            sb.append(this.getMap().toString());
+            sb.append("{");
+            
+            boolean isFirst = true;
+            for (Map.Entry pair : this.getMap().entrySet()) {
+                if (!isFirst) 
+                    sb.append(",");
+                sb.append("\"" + pair.getKey() + "\"" + ":" + pair.getValue().toString());
+                isFirst = false;
+            }
+            sb.append("}");
         }
         return sb.toString();
     }
