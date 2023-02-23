@@ -1,8 +1,8 @@
 import java.net.InetSocketAddress;
-
 import sun.net.ftp.FtpClient;
 
-public class FTPClient {
+
+public class SimpleFTPClient {
     private FtpClient ftpClient = FtpClient.create();
     
     
@@ -15,11 +15,10 @@ public class FTPClient {
         return true;
     }
 
-    public void enablePassive() {
-        this.ftpClient.enablePassiveMode(true);
-    }
 
-    public void enableActive() {
-        this.ftpClient.enablePassiveMode(false);
-    }
+    public void enablePassive() 
+        { this.ftpClient.enablePassiveMode(true); }
+        
+    public void enableActive() 
+        { this.ftpClient.enablePassiveMode(false); }
 }
