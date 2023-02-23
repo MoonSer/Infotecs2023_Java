@@ -3,9 +3,7 @@ package Json;
 import java.util.Collection;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 
 public class JsonObject {
@@ -132,7 +130,7 @@ public class JsonObject {
             sb.append("{");
             
             boolean isFirst = true;
-            for (Map.Entry pair : this.getMap().entrySet()) {
+            for (Map.Entry<String, JsonObject> pair : this.getMap().entrySet()) {
                 if (!isFirst) 
                     sb.append(",");
                 sb.append("\"" + pair.getKey() + "\"" + ":" + pair.getValue().toString());
