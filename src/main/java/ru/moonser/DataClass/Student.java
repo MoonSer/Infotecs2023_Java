@@ -79,7 +79,7 @@ public class Student {
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         Student student = (Student)obj;
-        return this.id == student.getId() && this.name == student.getName();
+        return this.id == student.getId() && this.name.equals(student.getName());
     }
     
 }

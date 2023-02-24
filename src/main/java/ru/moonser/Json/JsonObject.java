@@ -104,7 +104,7 @@ public class JsonObject {
 
 
     public JsonObject get(int index) throws ClassCastException {
-        if (this.isList() && index > 0 && this.getList().size() < index)
+        if (this.isList() && index >= 0 && index < this.getList().size())
             return this.getList().get(index);
         throw new TypeNotPresentException("JsonObjet is not a List", null);
     }
@@ -149,19 +149,16 @@ public class JsonObject {
     
     @Override
     public boolean equals(Object object) {
-        System.out.println("Equals");
         if (this == object)
             return true;
-        System.out.println("Another obj");
-        if (object == null || this.getClass() != object.getClass())
+
+            if (object == null || this.getClass() != object.getClass())
             return false;
         
-        System.out.println("Same class");
         JsonObject jsonObject = (JsonObject)object;
         if (this.valueType != jsonObject.valueType)
             return false;
         
-        System.out.println("Same same type");
         switch (this.valueType) {
             case NULL:
                 return true;

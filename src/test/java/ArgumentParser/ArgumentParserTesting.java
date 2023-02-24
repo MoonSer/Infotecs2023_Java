@@ -1,4 +1,4 @@
-package ArgumentParse;
+package ArgumentParser;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

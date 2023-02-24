@@ -58,7 +58,7 @@ public class JsonObjectTesting {
             
             Assert.assertTrue(isInteger(jsonObject));
             
-            Assert.assertEquals(jsonObject.getInteger(), listJson.get(i).getInteger());
+            Assert.assertEquals(jsonObject.getInteger(), jsonList.get(i).getInteger());
             Assert.assertEquals(jsonObject.getInteger(), jsonList.get(i).getInteger());
             Assert.assertEquals(jsonObject.getInteger(), intList.get(i));
                             

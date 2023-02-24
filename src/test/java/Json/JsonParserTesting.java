@@ -56,11 +56,11 @@ public class JsonParserTesting {
         jsonDataBuilder.append("[\n");
         jsonDataBuilder.append("\t\"не от худа\",\n");
         jsonDataBuilder.append("\t\"без\",\n");
-        jsonDataBuilder.append("\t\"добра,\n");
-        jsonDataBuilder.append("\t\"-125\n");
+        jsonDataBuilder.append("\t\"добра\",\n");
+        jsonDataBuilder.append("\t-125\n");
         
         try{
-            JsonParser.parse(new StringReader(jsonDataBuilder.toString()));
+            JsonParser.parse(new StringReader(jsonDataBuilder.toString())).toString();
             Assert.assertTrue(false);
         }catch(Exception e) {
             Assert.assertTrue(true);

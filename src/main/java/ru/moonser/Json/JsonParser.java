@@ -155,7 +155,7 @@ public class JsonParser {
             bufferedReader.mark(1);
         }
         
-        return null;    
+        throw new ParseException("Unexpected EOF", -1);
     }
     
     
