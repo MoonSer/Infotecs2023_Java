@@ -1,4 +1,4 @@
-package main.DataClass;
+package ru.moonser.DataClass;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.Json.JsonObject;
+import ru.moonser.Json.JsonObject;
 
 public class Student {
     

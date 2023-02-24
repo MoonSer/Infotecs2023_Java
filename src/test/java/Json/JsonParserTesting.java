@@ -1,4 +1,4 @@
-package suite.Json;
+package Json;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -7,8 +7,8 @@ import java.text.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import main.Json.JsonObject;
-import main.Json.JsonParser;
+import ru.moonser.Json.JsonObject;
+import ru.moonser.Json.JsonParser;
 
 public class JsonParserTesting {
     

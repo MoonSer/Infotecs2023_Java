@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'ru.moonser.App'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'ru.moonser.App'
+    }
+    archiveBaseName = project.name + '-all'
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+dependencies { 
+	implementation fileTree(dir: 'internalLibs', include: ['*.jar'])
+}
+
+jar {
+	manifest.attributes("Main-Class": mainClassName);
+}
+
+tasks.named('test') {
+	useTestNG() {
+		useDefaultListeners = true
+		outputDirectory = file("$projectDir/TestNG_Reports")
+   	}
+	reports.html.setDestination(file("$projectDir/GradleReports"))
+}

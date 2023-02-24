@@ -1,4 +1,4 @@
-package suite.Json;
+package Json;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import main.Json.JsonObject;
+import ru.moonser.Json.JsonObject;
 
 public class JsonObjectTesting {
     

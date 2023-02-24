@@ -1,9 +1,9 @@
-package main;
+package ru.moonser;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import main.Validators.*;
+import ru.moonser.Validators.*;
 
 public class ArgumentsParser {
 
@@ -26,7 +26,7 @@ public class ArgumentsParser {
         }
         
         
-        ip = this.validateOrAsk(ip, "IP", new IPValidator());
+        ip = this.validateOrAsk(ip, "IP", new DNSorIPValidator());
         username = this.validateOrAsk(username, "Username", new AlwaysCorrectValidator());
         password = this.validateOrAsk(password, "Password", new AlwaysCorrectValidator());
     }
@@ -36,7 +36,7 @@ public class ArgumentsParser {
         
         while (valueToValidate == null || !validator.validate(valueToValidate)) {
             try {
-                System.out.println("Enter " + textToAsk + ": ");
+                System.out.print("Enter " + textToAsk + ": ");
                 valueToValidate = buffer.readLine();
             } catch( Exception e) {
                 System.out.print("Error! " + e);

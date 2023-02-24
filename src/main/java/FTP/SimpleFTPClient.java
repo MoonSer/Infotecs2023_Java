@@ -1,4 +1,4 @@
-package main.FTP;
+package ru.moonser.FTP;
 
 import java.io.BufferedReader;
 import java.io.IOException;

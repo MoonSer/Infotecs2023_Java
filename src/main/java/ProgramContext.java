@@ -1,4 +1,4 @@
-package main;
+package ru.moonser;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -9,10 +9,10 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import main.FTP.FTPConnection;
-import main.DataClass.Student;
-import main.FTP.SimpleFTPClient;
-import main.Json.JsonParser;
+import ru.moonser.FTP.FTPConnection;
+import ru.moonser.DataClass.Student;
+import ru.moonser.FTP.SimpleFTPClient;
+import ru.moonser.Json.JsonParser;
 import sun.net.ftp.FtpProtocolException;
 
 public class ProgramContext {

@@ -1,15 +1,16 @@
-package main;
+package ru.moonser;
 
 import java.io.IOException;
 import java.text.ParseException;
 
-import main.FTP.FTPConnection;
-import main.FTP.SimpleFTPClient;
+import ru.moonser.FTP.FTPConnection;
+import ru.moonser.FTP.SimpleFTPClient;
 
 public class App {  
     public static void main(String[] args) throws IOException, ParseException {
         
         ArgumentsParser parser = new ArgumentsParser();
+        parser.parse(args);
         
         // // Example values
         // parser.setIp("93.189.41.9");

@@ -1,6 +1,6 @@
-package main;
+package ru.moonser;
 
-import main.Menu.MenuController;
+import ru.moonser.Menu.MenuController;
 
 public class Program {
 

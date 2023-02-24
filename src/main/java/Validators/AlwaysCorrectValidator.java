@@ -1,4 +1,4 @@
-package main.Validators;
+package ru.moonser.Validators;
 
 public class AlwaysCorrectValidator implements Validator {
 

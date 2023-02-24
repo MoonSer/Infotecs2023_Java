@@ -1,9 +1,9 @@
-package suite.ArgumentParser;
+package ArgumentParse;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import main.ArgumentsParser;
+import ru.moonser.ArgumentsParser;
 
 public class ArgumentParserTesting {
 

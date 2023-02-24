@@ -1,4 +1,4 @@
-package main.Menu;
+package ru.moonser.Menu;
 
 import java.io.BufferedReader;
 import java.io.IOException;

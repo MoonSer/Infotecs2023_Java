@@ -1,4 +1,4 @@
-package main.Json;
+package ru.moonser.Json;
 
 
 import java.io.IOException;

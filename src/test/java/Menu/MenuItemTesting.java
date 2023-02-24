@@ -1,10 +1,10 @@
-package suite.Menu;
+package Menu;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import main.Menu.MenuItem;
+import ru.moonser.Menu.MenuItem;
 
 public class MenuItemTesting {
 

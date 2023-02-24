@@ -1,4 +1,4 @@
-package main.FTP;
+package ru.moonser.FTP;
 
 public class FTPConnection {
     private String ip;
