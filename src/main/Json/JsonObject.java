@@ -1,4 +1,4 @@
-package Json;
+package main.Json;
 
 import java.util.Collection;
 import java.util.Map;
@@ -18,7 +18,11 @@ public class JsonObject {
     private Type valueType = Type.NULL;
 
 
-    // Constructors from multiple objects
+    public JsonObject() {
+        this.value = null;
+        this.valueType = Type.NULL;
+    }
+    
     public JsonObject(int value) {
         this.value = value;
         this.valueType = Type.INTEGER;
@@ -73,8 +77,8 @@ public class JsonObject {
         return this.value;
     }
 
-    public int getInteger() throws ClassCastException {
-        return (int)this.value;
+    public Integer getInteger() throws ClassCastException {
+        return (Integer)this.value;
     }
 
     public String getString() throws ClassCastException {
@@ -92,14 +96,15 @@ public class JsonObject {
     }
 
     public JsonObject get(String key) throws ClassCastException {
-        if (!this.isMap())
-            throw new TypeNotPresentException("JsonObjet is not a Map", null);
-        return this.getMap().get(key);
+        if (this.isMap() && this.getMap().containsKey(key))
+            return this.getMap().get(key);
+        throw new TypeNotPresentException("JsonObjet is not a Map", null);
+        
     }
 
 
     public JsonObject get(int index) throws ClassCastException {
-        if (this.isList())
+        if (this.isList() && index > 0 && this.getList().size() < index)
             return this.getList().get(index);
         throw new TypeNotPresentException("JsonObjet is not a List", null);
     }
@@ -139,5 +144,37 @@ public class JsonObject {
             sb.append("}");
         }
         return sb.toString();
+    }
+
+    
+    @Override
+    public boolean equals(Object object) {
+        System.out.println("Equals");
+        if (this == object)
+            return true;
+        System.out.println("Another obj");
+        if (object == null || this.getClass() != object.getClass())
+            return false;
+        
+        System.out.println("Same class");
+        JsonObject jsonObject = (JsonObject)object;
+        if (this.valueType != jsonObject.valueType)
+            return false;
+        
+        System.out.println("Same same type");
+        switch (this.valueType) {
+            case NULL:
+                return true;
+            case INTEGER:
+                return this.getInteger().equals(jsonObject.getInteger());
+            case STRING:
+                return this.getString().equals(jsonObject.getString());
+            case LIST:
+                return this.getList().equals(jsonObject.getList());
+            case MAP:
+                return this.getMap().equals(jsonObject.getMap());
+            default:
+                return false;
+        }
     }
 }

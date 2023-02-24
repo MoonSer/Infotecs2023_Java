@@ -1,3 +1,4 @@
+package main;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -8,11 +9,11 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import FTP.FTPConnection;
-import FTP.SimpleFTPClient;
-import Json.JsonParser;
+import main.FTP.FTPConnection;
+import main.DataClass.Student;
+import main.FTP.SimpleFTPClient;
+import main.Json.JsonParser;
 import sun.net.ftp.FtpProtocolException;
-import DataClass.Student;
 
 public class ProgramContext {
     public boolean inWork = true;
@@ -123,7 +124,7 @@ public class ProgramContext {
         SimpleFTPClient ftpClient = context.ftpConnection.createFTP();
         if (ftpClient == null)
             throw new Exception("Error. Can't connect to FTP server");
-        context.studentsInfo = Student.loadFromJson(JsonParser.parse(ftpClient.getFileReader("students.json")).get("students").getList());
+        context.studentsInfo = Student.createFromJson(JsonParser.parse(ftpClient.getFileReader("students.json")).get("students").getList());
     }
 
 

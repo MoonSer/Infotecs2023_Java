@@ -1,21 +1,37 @@
+package main;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import Validators.*;
+import main.Validators.*;
 
 public class ArgumentsParser {
 
-    public void parse(String[] args) {
-        if (args.length > 1) username = args[1];
-        if (args.length > 2) username = args[2];
-        if (args.length > 3) username = args[3];
-        
-        username = ArgumentsParser.validateOrAsk(username, "Username", new AlwaysCorrectValidator());
-        password = ArgumentsParser.validateOrAsk(password, "Password", new AlwaysCorrectValidator());
-        ip = ArgumentsParser.validateOrAsk(ip, "IP", new IPValidator());        
+    public String ip;
+    public String username;
+    public String password;
+
+    public ArgumentsParser() {
     }
 
-    public static String validateOrAsk(String valueToValidate, String textToAsk, Validator validator) {
+    public void parse(String[] args) {
+        if (args != null && args.length == 3) {
+            if (args.length > 1) ip = args[0];
+            if (args.length > 2) username = args[1];
+            if (args.length > 3) password = args[2];
+        }else if (args.length == 4) {
+            if (args.length > 1) ip = args[1];
+            if (args.length > 2) username = args[2];
+            if (args.length > 3) password = args[3];
+        }
+        
+        
+        ip = this.validateOrAsk(ip, "IP", new IPValidator());
+        username = this.validateOrAsk(username, "Username", new AlwaysCorrectValidator());
+        password = this.validateOrAsk(password, "Password", new AlwaysCorrectValidator());
+    }
+
+    public String validateOrAsk(String valueToValidate, String textToAsk, Validator validator) {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
         
         while (valueToValidate == null || !validator.validate(valueToValidate)) {
@@ -30,7 +46,6 @@ public class ArgumentsParser {
     }
 
 
-    public String username;
     public String getUsername() {
         return username;
     }
@@ -41,7 +56,6 @@ public class ArgumentsParser {
 
 
 
-    public String password;
     public String getPassword() {
         return password;
     }
@@ -51,7 +65,6 @@ public class ArgumentsParser {
     }
 
 
-    public String ip;
     public String getIp() {
         return ip;
     }

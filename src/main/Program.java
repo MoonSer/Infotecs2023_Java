@@ -1,4 +1,6 @@
-import Menu.MenuController;
+package main;
+
+import main.Menu.MenuController;
 
 public class Program {
 

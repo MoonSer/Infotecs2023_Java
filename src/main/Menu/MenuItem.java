@@ -1,4 +1,4 @@
-package Menu;
+package main.Menu;
 import java.util.function.Function;
 
 

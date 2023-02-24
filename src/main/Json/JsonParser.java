@@ -1,9 +1,10 @@
-package Json;
+package main.Json;
 
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.io.Reader;
+import java.io.StringReader;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.util.Map;
@@ -17,7 +18,12 @@ import java.util.ArrayList;
 
 public class JsonParser {
 
-    public static JsonObject parse(String filePath) throws IOException, ParseException {
+    public static JsonObject parseFromString(String jsonString) throws IOException, ParseException {
+        return JsonParser.parse(new StringReader(jsonString));
+    }
+
+    
+    public static JsonObject parseFromFile(String filePath) throws IOException, ParseException {
         return JsonParser.parse(new FileReader(filePath));
     }
 
@@ -152,6 +158,7 @@ public class JsonParser {
         return null;    
     }
     
+    
     private static JsonObject parseString(BufferedReader bufferedReader) throws IOException, ParseException {
         StringBuilder stringBuilder = new StringBuilder();
     
@@ -169,6 +176,8 @@ public class JsonParser {
         throw new ParseException("Unexpected EOF", -1);
     }
     
+
+
     private static JsonObject parseInteger(BufferedReader bufferedReader) throws IOException, ParseException {
         StringBuilder stringBuilder = new StringBuilder();
         

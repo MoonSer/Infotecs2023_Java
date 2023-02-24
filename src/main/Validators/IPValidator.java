@@ -1,4 +1,4 @@
-package Validators;
+package main.Validators;
 
 public class IPValidator implements Validator {
     @Override

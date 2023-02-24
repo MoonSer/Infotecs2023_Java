@@ -1,4 +1,5 @@
-package FTP;
+package main.FTP;
+
 public class FTPConnection {
     private String ip;
     private String username;

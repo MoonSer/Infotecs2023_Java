@@ -1,4 +1,4 @@
-package Validators;
+package main.Validators;
 
 public class AlwaysCorrectValidator implements Validator {
 
